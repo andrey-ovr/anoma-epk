@@ -678,24 +678,31 @@ p {
   }
 
   .hero__bg {
-    background-position: 62% center;
+    background-position: 70% center;
   }
 
   .hero__content {
     padding-top: 34px;
+    padding-bottom: 64px;
   }
 
   .brand-lockup {
-    display: block;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
     margin-bottom: 132px;
   }
 
   .brand-logo {
-    width: min(260px, 74vw);
+    width: min(220px, 55vw);
+    flex: 0 1 auto;
   }
 
   .brand-lockup p {
-    margin-top: 12px;
+    flex: 0 0 auto;
+    margin-top: 2px;
+    text-align: left;
     font-size: 13px;
     line-height: 16px;
   }
