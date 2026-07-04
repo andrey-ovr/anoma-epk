@@ -33,6 +33,7 @@ body {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -293,6 +294,8 @@ p {
 
 .about__image {
   width: 100%;
+  height: auto;
+  aspect-ratio: 620 / 231;
   margin-top: 24px;
 }
 
@@ -683,14 +686,14 @@ p {
 
   .hero__content {
     padding-top: 34px;
-    padding-bottom: 64px;
+    padding-bottom: 28px;
   }
 
   .brand-lockup {
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
+    justify-content: flex-start;
+    gap: 10px;
     margin-bottom: 132px;
   }
 
@@ -757,8 +760,9 @@ p {
   }
 
   .quick-links .mini-links a {
-    flex: 1 1 100%;
+    flex: 0 1 auto;
     min-width: 0;
+    width: auto;
   }
 
   .button {
@@ -772,19 +776,21 @@ p {
   }
 
   .track-card {
-    grid-template-columns: 96px minmax(0, 1fr);
-    gap: 16px;
+    grid-template-columns: 1fr;
+    gap: 18px;
     min-height: 0;
-    padding: 14px;
+    padding: 16px;
   }
 
   .track-card img {
-    width: 96px;
-    height: 96px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 7;
+    object-fit: cover;
   }
 
   .track-card__number {
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     font-size: 28px;
     line-height: 32px;
   }
@@ -807,6 +813,13 @@ p {
   .split--release {
     display: flex;
     flex-direction: column-reverse;
+  }
+
+  .release__cover {
+    width: 100%;
+    height: calc(100vw - (var(--gutter) * 2));
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
   }
 
   .poster {
@@ -873,19 +886,15 @@ p {
   }
 
   .contact__logo {
+    position: static;
     width: 128px;
-    bottom: 42px;
+    margin: 42px 0 0 auto;
   }
 }
 
 @media (max-width: 460px) {
   .track-card {
     grid-template-columns: 1fr;
-  }
-
-  .track-card img {
-    width: 132px;
-    height: 132px;
   }
 
   .contact-links {
