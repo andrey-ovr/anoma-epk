@@ -110,8 +110,18 @@ if (!prefersReducedMotion) {
     parallaxNodes.forEach((node) => {
       const rect = node.parentElement.getBoundingClientRect();
       const speed = Number(node.dataset.parallax || 0);
-      const offset = rect.top * speed;
-      node.style.transform = `translate3d(0, ${offset}px, 0) scale(1.04)`;
+      const scale = Number(node.dataset.parallaxScale || 1.04);
+      const rawOffset = rect.top * speed;
+      const min = Number(node.dataset.parallaxMin);
+      const max = Number(node.dataset.parallaxMax);
+      const clamp = Number(node.dataset.parallaxClamp || 0);
+      const hasRange = Number.isFinite(min) && Number.isFinite(max);
+      const offset = hasRange
+        ? Math.max(min, Math.min(max, rawOffset))
+        : clamp > 0
+          ? Math.max(-clamp, Math.min(clamp, rawOffset))
+          : rawOffset;
+      node.style.transform = `translate3d(0, ${offset}px, 0) scale(${scale})`;
     });
 
     ticking = false;

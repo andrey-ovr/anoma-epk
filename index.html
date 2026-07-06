@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ANOMA EPK</title>
     <meta name="description" content="ANOMA electronic press kit: music, press assets, project facts, and contact links.">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;900&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=mobile-layout-20260705">
+    <link rel="stylesheet" href="styles.css?v=image-opt-2-20260706">
   </head>
   <body>
     <main>
@@ -67,12 +70,16 @@
           <div class="statement-block">
             <p class="eyebrow eyebrow--strong">Artist Statement</p>
             <p>ANOMA exists in the space between memory and movement. Traditional voices and folk-rooted sounds do not have to remain in the past. They can be carried into modern electronic music, reshaped by bass, rhythm, texture, and atmosphere, while still keeping their emotional weight.</p>
-            <img class="about__image reveal-media" src="assets/about-photo.png" width="620" height="231" alt="ANOMA visual with a figure suspended above dark water">
+            <picture>
+              <source srcset="assets/about-photo.webp" type="image/webp">
+              <img class="about__image reveal-media" src="assets/about-photo.png" width="620" height="231" loading="lazy" decoding="async" alt="ANOMA visual with a figure suspended above dark water">
+            </picture>
           </div>
         </div>
       </section>
 
       <section class="section music dark-section" id="featured-music">
+        <div class="music__bg parallax-media" data-parallax="-0.08" aria-hidden="true"></div>
         <div class="container">
           <p class="eyebrow">Featured Music</p>
           <h2>ANOMA&rsquo;s music combines electronic rhythm with cultural texture.</h2>
@@ -80,7 +87,10 @@
 
           <div class="track-grid">
             <article class="track-card">
-              <img src="assets/cover-lullaby.png" width="150" height="150" alt="Lullaby cover art">
+              <picture>
+                <source srcset="assets/cover-lullaby.webp" type="image/webp">
+                <img src="assets/cover-lullaby.png" width="150" height="150" loading="lazy" decoding="async" alt="Lullaby cover art">
+              </picture>
               <div class="track-card__copy">
                 <span class="track-card__number">01</span>
                 <h3>Lullaby</h3>
@@ -95,7 +105,10 @@
             </article>
 
             <article class="track-card">
-              <img src="assets/cover-remember-me.png" width="150" height="150" alt="Remember me cover art">
+              <picture>
+                <source srcset="assets/cover-remember-me.webp" type="image/webp">
+                <img src="assets/cover-remember-me.png" width="150" height="150" loading="lazy" decoding="async" alt="Remember me cover art">
+              </picture>
               <div class="track-card__copy">
                 <span class="track-card__number">02</span>
                 <h3>Remember me</h3>
@@ -110,7 +123,10 @@
             </article>
 
             <article class="track-card">
-              <img src="assets/cover-ashes-of-us.png" width="150" height="150" alt="Ashes of us cover art">
+              <picture>
+                <source srcset="assets/cover-ashes-of-us.webp" type="image/webp">
+                <img src="assets/cover-ashes-of-us.png" width="150" height="150" loading="lazy" decoding="async" alt="Ashes of us cover art">
+              </picture>
               <div class="track-card__copy">
                 <span class="track-card__number">03</span>
                 <h3>Ashes of us</h3>
@@ -125,7 +141,10 @@
             </article>
 
             <article class="track-card">
-              <img src="assets/cover-let-you-down.png" width="150" height="150" alt="Let you down cover art">
+              <picture>
+                <source srcset="assets/cover-let-you-down.webp" type="image/webp">
+                <img src="assets/cover-let-you-down.png" width="150" height="150" loading="lazy" decoding="async" alt="Let you down cover art">
+              </picture>
               <div class="track-card__copy">
                 <span class="track-card__number">04</span>
                 <h3>Let you down</h3>
@@ -159,12 +178,17 @@
               <a data-track="letsGoOut" data-platform="deezer" href="https://www.deezer.com/album/932532071">Deezer</a>
             </div>
           </div>
-          <img class="release__cover reveal-media" src="assets/release-cover.png" width="517" height="517" alt="Let&rsquo;s go out cover art">
+          <picture>
+            <source srcset="assets/release-cover.webp" type="image/webp">
+            <img class="release__cover reveal-media" src="assets/release-cover.png" width="517" height="517" loading="lazy" decoding="async" alt="Let&rsquo;s go out cover art">
+          </picture>
         </div>
       </section>
 
       <section class="poster dark-section" id="statement">
-        <img class="poster__bg" src="assets/poster-bg.png" width="1280" height="560" alt="" aria-hidden="true">
+        <div class="poster__bg-frame" aria-hidden="true">
+          <img class="poster__bg parallax-media" data-parallax="-0.06" data-parallax-scale="1" data-parallax-min="-42" data-parallax-max="42" src="assets/poster-bg.png" width="2046" height="1391" alt="">
+        </div>
         <div class="container poster__grid">
           <p class="poster__intro">ANOMA exists in the space between</p>
           <div>
@@ -184,12 +208,30 @@
             <a class="button button--dark" data-link="oneSheet" href="https://drive.google.com/file/d/1TZ1EjDIZ5XhWIJdO9axD7v3sxo77t3wY/view?usp=drive_link">Download one-sheet PDF</a>
           </div>
           <div class="asset-grid">
-            <img class="reveal-media" src="assets/press-1.png" width="305" height="305" alt="ANOMA press photo 1">
-            <img class="reveal-media" src="assets/press-2.png" width="305" height="305" alt="ANOMA press photo 2">
-            <img class="reveal-media" src="assets/press-3.png" width="305" height="305" alt="ANOMA press photo 3">
-            <img class="reveal-media" src="assets/press-4.png" width="305" height="305" alt="ANOMA press photo 4">
-            <img class="asset-grid__wide reveal-media" src="assets/press-wide-1.png" width="630" height="200" alt="ANOMA logo landscape visual">
-            <img class="asset-grid__wide reveal-media" src="assets/press-wide-2.png" width="630" height="200" alt="ANOMA cover art landscape visual">
+            <picture>
+              <source srcset="assets/press-1.webp" type="image/webp">
+              <img class="reveal-media" src="assets/press-1.png" width="305" height="305" loading="lazy" decoding="async" alt="ANOMA press photo 1">
+            </picture>
+            <picture>
+              <source srcset="assets/press-2.webp" type="image/webp">
+              <img class="reveal-media" src="assets/press-2.png" width="305" height="305" loading="lazy" decoding="async" alt="ANOMA press photo 2">
+            </picture>
+            <picture>
+              <source srcset="assets/press-3.webp" type="image/webp">
+              <img class="reveal-media" src="assets/press-3.png" width="305" height="305" loading="lazy" decoding="async" alt="ANOMA press photo 3">
+            </picture>
+            <picture>
+              <source srcset="assets/press-4.webp" type="image/webp">
+              <img class="reveal-media" src="assets/press-4.png" width="305" height="305" loading="lazy" decoding="async" alt="ANOMA press photo 4">
+            </picture>
+            <picture class="asset-grid__wide">
+              <source srcset="assets/press-wide-1.webp" type="image/webp">
+              <img class="reveal-media" src="assets/press-wide-1.png" width="630" height="200" loading="lazy" decoding="async" alt="ANOMA logo landscape visual">
+            </picture>
+            <picture class="asset-grid__wide">
+              <source srcset="assets/press-wide-2.webp" type="image/webp">
+              <img class="reveal-media" src="assets/press-wide-2.png" width="630" height="200" loading="lazy" decoding="async" alt="ANOMA cover art landscape visual">
+            </picture>
           </div>
         </div>
       </section>
@@ -249,6 +291,6 @@
       </section>
     </main>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=poster-parallax-20260706"></script>
   </body>
 </html>

@@ -195,6 +195,10 @@ p {
 
 .hero__bg {
   background-image: url("assets/hero.png");
+  background-image: image-set(
+    url("assets/hero.webp") type("image/webp"),
+    url("assets/hero.png") type("image/png")
+  );
 }
 
 .hero__content {
@@ -292,7 +296,13 @@ p {
   max-width: 500px;
 }
 
+.statement-block picture,
+.split--release > picture {
+  display: block;
+}
+
 .about__image {
+  display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 620 / 231;
@@ -300,7 +310,24 @@ p {
 }
 
 .music {
+  position: relative;
+  overflow: hidden;
   background: var(--night);
+}
+
+.music__bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/featured-music-bg.png");
+  background-image: image-set(
+    url("assets/featured-music-bg.webp") type("image/webp"),
+    url("assets/featured-music-bg.png") type("image/png")
+  );
+  background-position: center;
+  background-size: cover;
+  opacity: 0.8;
+  pointer-events: none;
+  will-change: transform;
 }
 
 .music h2 {
@@ -327,7 +354,14 @@ p {
   color: var(--paper-soft);
 }
 
+.track-card picture {
+  display: block;
+  width: 150px;
+  height: 150px;
+}
+
 .track-card img {
+  display: block;
   width: 150px;
   height: 150px;
   object-fit: cover;
@@ -406,6 +440,7 @@ p {
 }
 
 .release__cover {
+  display: block;
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
@@ -421,26 +456,38 @@ p {
 }
 
 .poster {
+  --poster-bg-width: min(1280px, calc(100vw - (var(--gutter) * 2)));
+  --poster-travel: 48px;
+  --poster-height: 560px;
   position: relative;
-  min-height: 560px;
+  min-height: var(--poster-height);
   overflow: hidden;
 }
 
-.poster__bg {
+.poster__bg-frame {
   position: absolute;
   top: 0;
   left: 50%;
-  width: min(1280px, calc(100% - (var(--gutter) * 2)));
-  height: 560px;
-  object-fit: cover;
-  object-position: center top;
-  mix-blend-mode: screen;
+  width: var(--poster-bg-width);
+  height: 100%;
+  overflow: hidden;
   pointer-events: none;
   transform: translateX(-50%);
 }
 
+.poster__bg {
+  position: absolute;
+  top: -103px;
+  left: 0;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: screen;
+  transform-origin: center;
+  will-change: transform;
+}
+
 .poster__grid {
-  min-height: 560px;
+  min-height: var(--poster-height);
   display: grid;
   grid-template-columns: minmax(0, 490px) minmax(0, 690px);
   gap: 80px;
@@ -492,9 +539,14 @@ p {
   margin-top: 32px;
 }
 
+.asset-grid picture,
 .asset-grid img {
+  display: block;
   width: 100%;
   height: 100%;
+}
+
+.asset-grid img {
   min-height: 0;
   object-fit: cover;
 }
@@ -555,6 +607,10 @@ p {
 
 .contact__bg {
   background-image: linear-gradient(rgba(18, 18, 31, 0.44), rgba(18, 18, 31, 0.44)), url("assets/contact-bg.png");
+  background-image: linear-gradient(rgba(18, 18, 31, 0.44), rgba(18, 18, 31, 0.44)), image-set(
+    url("assets/contact-bg.webp") type("image/webp"),
+    url("assets/contact-bg.png") type("image/png")
+  );
   filter: saturate(0.9) contrast(1.04);
 }
 
@@ -782,9 +838,13 @@ p {
     padding: 16px;
   }
 
+  .track-card picture,
   .track-card img {
     width: 100%;
     height: auto;
+  }
+
+  .track-card img {
     aspect-ratio: 16 / 7;
     object-fit: cover;
   }
@@ -823,7 +883,13 @@ p {
   }
 
   .poster {
+    --poster-bg-width: min(1120px, 350vw);
+    --poster-travel: 42px;
     min-height: 640px;
+  }
+
+  .poster__bg {
+    top: -50px;
   }
 
   .poster__grid {
@@ -920,8 +986,8 @@ p {
     transition-duration: 0.01ms !important;
   }
 
-  .parallax-media,
-  .poster__bg {
-    transform: translateX(-50%) !important;
+  .parallax-media {
+    transform: none !important;
   }
+
 }
