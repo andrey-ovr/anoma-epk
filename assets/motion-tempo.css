@@ -1,0 +1,42 @@
+/* Reversible timing trial: remove this stylesheet link to restore the original tempo. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  .motion-two {
+    --motion-trial-delay: 250ms;
+    --motion-trial-scale: 1.25;
+  }
+
+  .motion-ready .motion-two [data-reveal] {
+    transition-duration: calc(.8s * var(--motion-trial-scale)), calc(1s * var(--motion-trial-scale));
+    transition-delay: calc(var(--motion-trial-delay) + var(--delay, 0ms) * var(--motion-trial-scale));
+  }
+  .motion-ready .motion-two [data-lines] .line-inner {
+    transition-duration: calc(1.1s * var(--motion-trial-scale));
+    transition-delay: calc(var(--motion-trial-delay) + var(--delay, 0ms) * var(--motion-trial-scale));
+  }
+  .motion-ready .motion-two [data-image] img {
+    transition-duration: calc(1.2s * var(--motion-trial-scale)), calc(1.6s * var(--motion-trial-scale));
+    transition-delay: calc(var(--motion-trial-delay) + var(--image-stagger, 0ms));
+  }
+  .motion-ready .motion-two [data-words] .word {
+    transition-duration: calc(.18s * var(--motion-trial-scale));
+    transition-delay: var(--motion-trial-delay);
+  }
+  .motion-two .button {
+    transition-duration: calc(.3s * var(--motion-trial-scale));
+    transition-delay: var(--motion-trial-delay);
+  }
+  .motion-two .mini-links a,
+  .motion-two .contact-links a,
+  .motion-two .asset-gallery__arrow {
+    transition-duration: calc(.2s * var(--motion-trial-scale));
+    transition-delay: var(--motion-trial-delay);
+  }
+
+  /* Keyboard focus must not wait for a decorative entrance. */
+  .motion-ready .motion-two [data-reveal]:focus-within,
+  .motion-ready .motion-two [data-lines]:focus-within .line-inner,
+  .motion-ready .motion-two [data-image]:focus-within img {
+    transition-duration: 0s;
+    transition-delay: 0s;
+  }
+}

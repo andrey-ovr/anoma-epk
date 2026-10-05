@@ -1,139 +1,204 @@
-const LINKS = {
-  listen: "https://open.spotify.com/artist/1gPJcWCciqQGwted73xmvp?si=6xhFDr3IQeWgQK_qeZCsWw",
-  downloadEpk: "https://drive.google.com/file/d/1TZ1EjDIZ5XhWIJdO9axD7v3sxo77t3wY/view?usp=drive_link",
-  contact: "mailto:anoma.muz@gmail.com",
-  latestSpotify: "https://open.spotify.com/album/53VRMJdb4RkmeisdxeU6ws",
-  pressAssets: "https://drive.google.com/drive/folders/1zV7ONfSa4_PV7yY_xpLGfzqxyznOT_AJ?usp=drive_link",
-  oneSheet: "https://drive.google.com/file/d/1TZ1EjDIZ5XhWIJdO9axD7v3sxo77t3wY/view?usp=drive_link",
-  instagram: "https://www.instagram.com/anoma.muz/",
-  tiktok: "https://www.tiktok.com/@anoma_music",
-  facebook: "https://www.facebook.com/anoma.muz/"
-};
+(() => {
+  const preference = matchMedia('(prefers-reduced-motion: reduce)');
+  const root = document.documentElement;
+  const clamp = (value, min = 0, max = 1) => Math.max(min, Math.min(max, value));
 
-const TRACK_LINKS = {
-  lullaby: {
-    spotify: "https://open.spotify.com/album/0vpatIdFdPbJAIGQvgQExA",
-    apple: "https://geo.music.apple.com/album/lullaby-feat-valeriia-vovk-single/1734297127",
-    youtube: "https://music.youtube.com/playlist?list=OLAK5uy_nmOTsIS_GkbzEq9zhhV18oxev5tu9ED0w",
-    deezer: "https://link.deezer.com/s/33JKLZFoQnCTcfjGmz3Nc"
-  },
-  rememberMe: {
-    spotify: "https://open.spotify.com/album/3ueGCapF5VwPM6U0Ucfn3b",
-    apple: "https://geo.music.apple.com/album/remember-me-single/1847443483",
-    youtube: "https://music.youtube.com/playlist?list=OLAK5uy_k5-gbRpVrMZTBb1AQLHD2Z5rtP2TjzRoo",
-    deezer: "https://link.deezer.com/s/33JKLvwvzE4HMIbeMchwL"
-  },
-  ashesOfUs: {
-    spotify: "https://open.spotify.com/album/72O8BEpMqMt5AuxqaxKNbM",
-    apple: "https://geo.music.apple.com/album/ashes-of-us-single/1836797517",
-    youtube: "https://music.youtube.com/playlist?list=OLAK5uy_nrIkU1T0aL_Ggt9EgeSELfjk1lx7JwBbg",
-    deezer: "https://link.deezer.com/s/33JKJZCO0eccwKK0XRMds"
-  },
-  letYouDown: {
-    spotify: "https://open.spotify.com/album/648xXKfPAsah1Li8keXDpj",
-    apple: "https://geo.music.apple.com/album/let-you-down-single/1796699773",
-    youtube: "https://music.youtube.com/playlist?list=OLAK5uy_lj0fT6nUyiKatxXo4w9LZo-7MVwyawRtE",
-    deezer: "https://link.deezer.com/s/33JKICDUremrZcxDGsEOF"
-  },
-  letsGoOut: {
-    apple: "https://geo.music.apple.com/album/lets-go-out-feat-hope-single/1882442462",
-    youtube: "https://music.youtube.com/playlist?list=OLAK5uy_nZj3gzHjpLlkDRJVP1RhUtB4tdkgV_NMM",
-    deezer: "https://www.deezer.com/album/932532071"
-  }
-};
-
-const PLATFORM_LINKS = {
-  spotify: "https://open.spotify.com/artist/1gPJcWCciqQGwted73xmvp?si=0Wm0_nLySaSGiF6-N0ycxA",
-  apple: "https://music.apple.com/us/artist/anoma/1722349699",
-  youtubeMusic: "https://music.youtube.com/@anoma-music?si=7aMD4mL2ukPQZQSN",
-  deezer: "https://www.deezer.com/ru/album/932532071?host=0&utm_campaign=clipboard-generic&utm_source=user_sharing&utm_content=album-932532071&deferredFl=1"
-};
-
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-document.querySelectorAll("[data-link]").forEach((node) => {
-  const href = LINKS[node.dataset.link];
-  if (!href) return;
-  node.setAttribute("href", href);
-});
-
-document.querySelectorAll("[data-track][data-platform]").forEach((node) => {
-  const href = TRACK_LINKS[node.dataset.track]?.[node.dataset.platform];
-  if (!href) return;
-  node.setAttribute("href", href);
-});
-
-document.querySelectorAll("[data-platform]:not([data-track])").forEach((node) => {
-  const href = PLATFORM_LINKS[node.dataset.platform];
-  if (!href) return;
-  node.setAttribute("href", href);
-});
-
-document.querySelectorAll("a[href^='http']").forEach((link) => {
-  link.setAttribute("target", "_blank");
-  link.setAttribute("rel", "noopener noreferrer");
-});
-
-document.querySelectorAll("a[href^='#']").forEach((link) => {
-  link.addEventListener("click", (event) => {
-    const target = document.querySelector(link.getAttribute("href"));
-    if (!target) return;
-    event.preventDefault();
-    target.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
+  document.querySelectorAll('a[href^="http"]').forEach(link => {
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
   });
-});
 
-const revealNodes = document.querySelectorAll(".reveal-media");
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
+  // Split only explicit editorial lines; natural wrapping stays responsive.
+  document.querySelectorAll('[data-lines]').forEach(heading => {
+    heading.setAttribute('aria-label', heading.innerText.replace(/\s+/g, ' ').trim());
+    const lines = [[]];
+    [...heading.childNodes].forEach(node => {
+      if (node.nodeName === 'BR') lines.push([]);
+      else lines[lines.length - 1].push(node);
+    });
+    heading.replaceChildren(...lines.map((nodes, index) => {
+      const mask = document.createElement('span');
+      mask.className = 'line-mask';
+      mask.setAttribute('aria-hidden', 'true');
+      const line = document.createElement('span');
+      line.className = 'line-inner';
+      line.style.setProperty('--delay', `${index * 110}ms`);
+      line.append(...nodes);
+      mask.append(line);
+      return mask;
+    }));
+  });
+
+  const statement = document.querySelector('[data-words]');
+  if (statement) {
+    statement.setAttribute('aria-label', statement.textContent);
+    const walker = document.createTreeWalker(statement, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(node => {
+      const fragment = document.createDocumentFragment();
+      node.textContent.split(/(\s+)/).forEach(token => {
+        if (!token.trim()) fragment.append(document.createTextNode(token));
+        else {
+          const word = document.createElement('span');
+          word.className = 'word';
+          word.setAttribute('aria-hidden', 'true');
+          word.textContent = token;
+          fragment.append(word);
         }
       });
-    },
-    { rootMargin: "0px 0px -12% 0px", threshold: 0.15 }
-  );
-  revealNodes.forEach((node) => observer.observe(node));
-} else {
-  revealNodes.forEach((node) => node.classList.add("is-visible"));
-}
-
-if (!prefersReducedMotion) {
-  const parallaxNodes = [...document.querySelectorAll("[data-parallax]")];
-  let ticking = false;
-
-  const updateParallax = () => {
-    const scrollY = window.scrollY || window.pageYOffset;
-    parallaxNodes.forEach((node) => {
-      const rect = node.parentElement.getBoundingClientRect();
-      const speed = Number(node.dataset.parallax || 0);
-      const scale = Number(node.dataset.parallaxScale || 1.04);
-      const rawOffset = rect.top * speed;
-      const min = Number(node.dataset.parallaxMin);
-      const max = Number(node.dataset.parallaxMax);
-      const clamp = Number(node.dataset.parallaxClamp || 0);
-      const hasRange = Number.isFinite(min) && Number.isFinite(max);
-      const offset = hasRange
-        ? Math.max(min, Math.min(max, rawOffset))
-        : clamp > 0
-          ? Math.max(-clamp, Math.min(clamp, rawOffset))
-          : rawOffset;
-      node.style.transform = `translate3d(0, ${offset}px, 0) scale(${scale})`;
+      node.replaceWith(fragment);
     });
+  }
+  const words = statement ? [...statement.querySelectorAll('.word')] : [];
+  document.querySelectorAll('.track-card picture, .asset-grid picture, .asset-gallery picture, .statement-block picture, .split--release > picture').forEach(node => node.setAttribute('data-image', ''));
+  document.querySelectorAll('.eyebrow, .section-title__label, .track-card__copy, .track-card .mini-links, .fact-table > div, .contact-links > div, .hero__bottom').forEach(node => node.setAttribute('data-reveal', ''));
+  const reveals = [...document.querySelectorAll('[data-reveal], [data-lines], [data-image]')];
+  let observer;
+  let preloadObserver;
+  let motionGeneration = 0;
+  const visibleTargets = new Set();
+  const imageReadiness = new WeakMap();
+  let frame = 0;
+  const progressBar = document.querySelector('.reading-progress');
+  const backgrounds = [...document.querySelectorAll('.hero__bg, .music__bg, .contact__bg, .poster__bg')];
 
-    ticking = false;
-  };
+  function prepareImage(image) {
+    if (!imageReadiness.has(image)) {
+      const loaded = new Promise(resolve => {
+        const finish = () => {
+          image.removeEventListener('load', finish);
+          image.removeEventListener('error', finish);
+          resolve();
+        };
+        image.addEventListener('load', finish);
+        image.addEventListener('error', finish);
+        image.loading = 'eager';
+        if (image.complete) finish();
+      });
+      imageReadiness.set(image, loaded.then(async () => {
+        if (image.naturalWidth && image.decode) {
+          try { await image.decode(); } catch { /* Failed images still expose their alt text. */ }
+        }
+      }));
+    }
+    return imageReadiness.get(image);
+  }
 
-  const requestTick = () => {
-    if (ticking) return;
-    window.requestAnimationFrame(updateParallax);
-    ticking = true;
-  };
+  async function revealWhenReady(node, generation) {
+    const image = node.querySelector('img');
+    if (image) {
+      await prepareImage(image);
+      // Paint the hidden, decoded image before starting its entrance transition.
+      await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    }
+    if (generation !== motionGeneration || !visibleTargets.has(node)) return;
+    node.classList.add('has-entered');
+    observer?.unobserve(node);
+    visibleTargets.delete(node);
+  }
 
-  window.addEventListener("scroll", requestTick, { passive: true });
-  window.addEventListener("resize", requestTick);
-  updateParallax();
-}
+  function render() {
+    frame = 0;
+    if (preference.matches) return;
+    const height = innerHeight;
+    const pageRange = Math.max(1, root.scrollHeight - height);
+    progressBar.style.transform = `scaleX(${clamp(scrollY / pageRange)})`;
+    backgrounds.forEach(node => {
+      const box = (node.closest('.poster') || node.parentElement).getBoundingClientRect();
+      if (box.bottom < -100 || box.top > height + 100) return;
+      if (node.classList.contains('hero__bg')) {
+        // Preserve the Figma crop at the top; use the photo's overscan on scroll.
+        node.style.transform = `translate3d(0, ${clamp(-box.top * .08, 0, 60)}px, 0)`;
+        return;
+      }
+      // Each photograph has 60px overscan; movement cannot expose its edge.
+      const progress = clamp((height - box.top) / (height + box.height));
+      const travel = node.classList.contains('poster__bg') ? 48 : 88;
+      node.style.transform = `translate3d(0, ${(progress - .5) * travel}px, 0)`;
+    });
+    if (statement) {
+      const box = statement.getBoundingClientRect();
+      const progress = clamp((height * .88 - box.top) / (height * .5 + box.height * .25));
+      words.forEach((word, index) => word.classList.toggle('is-read', progress >= index / Math.max(1, words.length - 1)));
+    }
+  }
+  function schedule() {
+    if (!frame && !preference.matches) frame = requestAnimationFrame(render);
+  }
+  function configure() {
+    observer?.disconnect();
+    preloadObserver?.disconnect();
+    const generation = ++motionGeneration;
+    visibleTargets.clear();
+    cancelAnimationFrame(frame);
+    frame = 0;
+    if (preference.matches || !('IntersectionObserver' in window)) {
+      root.classList.remove('motion-ready');
+      backgrounds.forEach(node => node.style.removeProperty('transform'));
+      return;
+    }
+    observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          visibleTargets.delete(entry.target);
+          return;
+        }
+        visibleTargets.add(entry.target);
+        revealWhenReady(entry.target, generation);
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+    preloadObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const images = entry.target.matches('img') ? [entry.target] : entry.target.querySelectorAll('img');
+        images.forEach(prepareImage);
+        preloadObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '600px 0px' });
+    document.querySelectorAll('img[loading="lazy"], .asset-gallery__track').forEach(node => preloadObserver.observe(node));
+    reveals.forEach(node => observer.observe(node));
+    root.classList.add('motion-ready');
+    schedule();
+  }
+  const gallery = document.querySelector('.asset-gallery__track');
+  if (gallery) {
+    const controls = document.querySelector('.asset-gallery__controls');
+    const previous = controls.querySelector('.asset-gallery__arrow--previous');
+    const next = controls.querySelector('.asset-gallery__arrow--next');
+    const updateControls = () => {
+      previous.disabled = gallery.scrollLeft <= 1;
+      next.disabled = gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth - 1;
+    };
+    const move = direction => {
+      const step = gallery.querySelector('picture').getBoundingClientRect().width + parseFloat(getComputedStyle(gallery).columnGap);
+      gallery.scrollBy({ left: direction * step, behavior: preference.matches ? 'instant' : 'smooth' });
+    };
+    previous.addEventListener('click', () => move(-1));
+    next.addEventListener('click', () => move(1));
+    gallery.addEventListener('keydown', event => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      move(event.key === 'ArrowRight' ? 1 : -1);
+    });
+    gallery.addEventListener('scroll', updateControls, { passive: true });
+    addEventListener('resize', updateControls, { passive: true });
+    controls.hidden = false;
+    updateControls();
+  }
+  // Keyboard navigation must never focus an invisible animated link.
+  document.addEventListener('focusin', event => {
+    let node = event.target;
+    while (node instanceof Element) {
+      if (node.matches('[data-reveal], [data-lines], [data-image]')) node.classList.add('has-entered');
+      node = node.parentElement;
+    }
+  });
+  addEventListener('scroll', schedule, { passive: true });
+  addEventListener('resize', schedule, { passive: true });
+  addEventListener('pageshow', schedule);
+  document.fonts?.ready.then(schedule);
+  if ('ResizeObserver' in window) new ResizeObserver(schedule).observe(document.body);
+  preference.addEventListener('change', configure);
+  configure();
+})();

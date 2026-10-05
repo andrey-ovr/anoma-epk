@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ANOMA EPK</title>
+    <title>ANOMA — Electronic Press Kit</title>
     <meta name="description" content="ANOMA electronic press kit: music, press assets, project facts, and contact links.">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png">
@@ -11,23 +11,37 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=image-opt-2-20260706">
+    <link rel="stylesheet" href="assets/motion.css?v=20261005-main-1">
+    <link rel="stylesheet" href="assets/motion-tempo.css?v=20261005-main-1">
+    <link rel="preload" as="image" href="assets/motion/hero-motion2.webp" type="image/webp" fetchpriority="high">
   </head>
-  <body>
+  <body class="motion-study motion-two">
+    <a class="skip-link" href="#about">Skip to content</a>
+    <header class="site-header">
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a><a href="#featured-music">Music</a><a href="#assets">Press</a><a href="#contact">Contact</a>
+      </nav>
+    </header>
+    <div class="reading-progress" aria-hidden="true"></div>
     <main>
       <section class="hero dark-section" id="top">
         <div class="hero__bg parallax-media" data-parallax="-0.12" aria-hidden="true"></div>
         <div class="container hero__content">
-          <div class="brand-lockup">
-            <img class="brand-logo" src="assets/logo.png" width="312" height="75" alt="ANOMA">
-            <p>RHYTHM<br>UNVEILS<br>THE<br>MYSTERY</p>
+          <div class="hero__meta"><span>Independent electronic music</span><span>Ukraine / Israel</span></div>
+          <div class="hero__identity">
+            <h1 class="hero__name" data-reveal><img class="hero__logo" src="assets/motion/logo-hero.svg" width="578" height="139" alt="ANOMA" decoding="async"></h1>
+            <p class="hero__tagline" data-lines>Rhythm unveils<br><em>the mystery.</em></p>
           </div>
-          <h1>Where ancient voices meet the pulse of modern electronic music.</h1>
-          <p class="hero__intro">ANOMA blends ethnic vocals, folk-inspired textures, and traditional instruments with deep house, breakbeat, and drum &amp; bass, creating electronic music rooted in cultural memory and shaped for a modern audience.</p>
+          <div class="hero__bottom">
+          <p class="hero__intro">Where ancient voices meet the pulse of modern electronic music.</p>
           <div class="button-row">
             <a class="button button--light" data-link="listen" href="https://open.spotify.com/artist/1gPJcWCciqQGwted73xmvp?si=6xhFDr3IQeWgQK_qeZCsWw">Listen</a>
             <a class="button button--outline" data-link="downloadEpk" href="https://drive.google.com/file/d/1TZ1EjDIZ5XhWIJdO9axD7v3sxo77t3wY/view?usp=drive_link">Download EPK</a>
           </div>
+          </div>
+          <a class="hero__explore" href="#about">The sound of ANOMA <img src="assets/motion/arrow-down.svg" width="24" height="24" alt=""></a>
         </div>
       </section>
 
@@ -61,18 +75,16 @@
       </section>
 
       <section class="section about" id="about">
-        <div class="container split split--about">
-          <div>
-            <p class="eyebrow">About</p>
-            <h2>Electronic music shaped by cultural memory, folk voices, and modern rhythm.</h2>
-            <p>ANOMA is an electronic music project by an independent producer blending ethnic vocals, folk instruments, and modern rhythms across deep house, breakbeat, and drum &amp; bass. Rooted in Ukrainian cultural elements and shaped by life between Ukraine and Israel, ANOMA explores the meeting point between ancestral voices, emotional storytelling, and future-facing electronic production.</p>
-          </div>
-          <div class="statement-block">
-            <p class="eyebrow eyebrow--strong">Artist Statement</p>
-            <p>ANOMA exists in the space between memory and movement. Traditional voices and folk-rooted sounds do not have to remain in the past. They can be carried into modern electronic music, reshaped by bass, rhythm, texture, and atmosphere, while still keeping their emotional weight.</p>
-            <picture>
-              <source srcset="assets/about-photo.webp" type="image/webp">
-              <img class="about__image reveal-media" src="assets/about-photo.png" width="620" height="231" loading="lazy" decoding="async" alt="ANOMA visual with a figure suspended above dark water">
+        <div class="container about__layout">
+          <header class="section-title">
+            <p class="section-title__label">01 | ABOUT</p>
+            <h2 class="section-title__heading" data-lines>Cultural<br><em>memory.</em></h2>
+          </header>
+          <div class="about__body">
+            <p class="about__bio" data-reveal>ANOMA is an electronic music project by an independent producer blending ethnic vocals, folk instruments, and modern rhythms across deep house, breakbeat, and drum &amp; bass. Rooted in Ukrainian cultural elements and shaped by life between Ukraine and Israel, ANOMA explores the meeting point between ancestral voices, emotional storytelling, and future-facing electronic production.</p>
+            <picture data-image>
+              <source srcset="assets/motion/about-motion2.webp" type="image/webp">
+              <img class="about__image" src="assets/motion/about-motion2.png" width="640" height="216" loading="lazy" decoding="async" alt="ANOMA visual with a figure suspended above dark water">
             </picture>
           </div>
         </div>
@@ -81,19 +93,20 @@
       <section class="section music dark-section" id="featured-music">
         <div class="music__bg parallax-media" data-parallax="-0.08" aria-hidden="true"></div>
         <div class="container">
-          <p class="eyebrow">Featured Music</p>
-          <h2>ANOMA&rsquo;s music combines electronic rhythm with cultural texture.</h2>
-          <p class="section-intro">These tracks are curated as a listening path for media, curators, labels, and collaborators.</p>
+          <header class="section-title">
+            <p class="section-title__label">02 | FEATURED MUSIC</p>
+            <h2 class="section-title__heading" data-lines>Selected<br><em>frequencies.</em></h2>
+          </header>
+          <p class="section-intro">Different emotions and textures, connected by a shared pulse. Each track reveals another side of ANOMA’s musical world.</p>
 
           <div class="track-grid">
             <article class="track-card">
               <picture>
-                <source srcset="assets/cover-lullaby.webp" type="image/webp">
-                <img src="assets/cover-lullaby.png" width="150" height="150" loading="lazy" decoding="async" alt="Lullaby cover art">
+                <source srcset="assets/motion/cover-lullaby.webp" type="image/webp">
+                <img src="assets/motion/cover-lullaby.jpg" width="800" height="800" loading="lazy" decoding="async" alt="Lullaby cover art">
               </picture>
               <div class="track-card__copy">
                 <span class="track-card__number">01</span>
-                <h3>Lullaby</h3>
                 <p>Vocal-centered and intimate, where Ukrainian-rooted emotion meets cinematic electronic atmosphere.</p>
               </div>
               <div class="mini-links" aria-label="Lullaby platform links">
@@ -106,12 +119,11 @@
 
             <article class="track-card">
               <picture>
-                <source srcset="assets/cover-remember-me.webp" type="image/webp">
-                <img src="assets/cover-remember-me.png" width="150" height="150" loading="lazy" decoding="async" alt="Remember me cover art">
+                <source srcset="assets/motion/cover-remember-me.webp" type="image/webp">
+                <img src="assets/motion/cover-remember-me.jpg" width="800" height="800" loading="lazy" decoding="async" alt="Remember me cover art">
               </picture>
               <div class="track-card__copy">
                 <span class="track-card__number">02</span>
-                <h3>Remember me</h3>
                 <p>Melodic electronic songwriting for a first contact with ANOMA&rsquo;s softer, more accessible side.</p>
               </div>
               <div class="mini-links" aria-label="Remember me platform links">
@@ -124,12 +136,11 @@
 
             <article class="track-card">
               <picture>
-                <source srcset="assets/cover-ashes-of-us.webp" type="image/webp">
-                <img src="assets/cover-ashes-of-us.png" width="150" height="150" loading="lazy" decoding="async" alt="Ashes of us cover art">
+                <source srcset="assets/motion/cover-ashes-of-us.webp" type="image/webp">
+                <img src="assets/motion/cover-ashes-of-us.jpg" width="800" height="800" loading="lazy" decoding="async" alt="Ashes of us cover art">
               </picture>
               <div class="track-card__copy">
                 <span class="track-card__number">03</span>
-                <h3>Ashes of us</h3>
                 <p>A darker emotional cut about memory and aftermath, shaped by restrained electronic tension.</p>
               </div>
               <div class="mini-links" aria-label="Ashes of us platform links">
@@ -142,12 +153,11 @@
 
             <article class="track-card">
               <picture>
-                <source srcset="assets/cover-let-you-down.webp" type="image/webp">
-                <img src="assets/cover-let-you-down.png" width="150" height="150" loading="lazy" decoding="async" alt="Let you down cover art">
+                <source srcset="assets/motion/cover-let-you-down.webp" type="image/webp">
+                <img src="assets/motion/cover-let-you-down.jpg" width="800" height="800" loading="lazy" decoding="async" alt="Let you down cover art">
               </picture>
               <div class="track-card__copy">
                 <span class="track-card__number">04</span>
-                <h3>Let you down</h3>
                 <p>A direct, song-led electronic track balancing vulnerability with a clear contemporary pulse.</p>
               </div>
               <div class="mini-links" aria-label="Let you down platform links">
@@ -164,9 +174,10 @@
       <section class="section release" id="latest-release">
         <div class="container split split--release">
           <div>
-            <p class="eyebrow">Latest Release</p>
-            <h2>Let&rsquo;s go out</h2>
-            <p class="release-date">Release date: Mar 19, 2026</p>
+            <header class="section-title">
+              <p class="section-title__label">03 | LATEST RELEASE</p>
+              <h2 class="section-title__heading" data-lines>Let&rsquo;s<br><em>go out.</em></h2>
+            </header>
             <p>A vulnerable late-night confession wrapped in modern electronic production. This track captures the fragile space between love and fear, when two people want to hold on, but don&rsquo;t know if they can.</p>
             <p>Glitchy production blended with liquid DnB rhythms, rolling breakbeats, deep sub-bass, syncopated percussion, airy pads, shimmering synths and granular textures.</p>
             <div class="button-row release__actions">
@@ -179,78 +190,75 @@
             </div>
           </div>
           <picture>
-            <source srcset="assets/release-cover.webp" type="image/webp">
-            <img class="release__cover reveal-media" src="assets/release-cover.png" width="517" height="517" loading="lazy" decoding="async" alt="Let&rsquo;s go out cover art">
+            <source srcset="assets/motion/release-motion2-800.webp 800w, assets/motion/release-motion2.webp 1600w" sizes="(max-width: 720px) calc(100vw - 40px), (max-width: 1100px) calc(50vw - 56px), 590px" type="image/webp">
+            <img class="release__cover reveal-media is-visible" src="assets/motion/release-motion2.png" width="1600" height="1600" loading="lazy" decoding="async" alt="Let&rsquo;s go out cover art">
           </picture>
         </div>
       </section>
 
       <section class="poster dark-section" id="statement">
-        <div class="poster__bg-frame" aria-hidden="true">
-          <img class="poster__bg parallax-media" data-parallax="-0.06" data-parallax-scale="1" data-parallax-min="-42" data-parallax-max="42" src="assets/poster-bg.png" width="2046" height="1391" alt="">
-        </div>
+        <picture class="poster__bg-frame" aria-hidden="true">
+          <source srcset="assets/motion/statement-motion2.webp" type="image/webp">
+          <img class="poster__bg" src="assets/motion/statement-motion2.png" width="2024" height="1373" loading="lazy" decoding="async" alt="">
+        </picture>
         <div class="container poster__grid">
-          <p class="poster__intro">ANOMA exists in the space between</p>
-          <div>
-            <h2>Memory<br>and<br>movement</h2>
-            <p>Traditional voices and folk-rooted sounds can be carried into modern electronic music, reshaped by bass, rhythm, texture, and atmosphere.</p>
+          <p class="poster__intro" data-reveal>ANOMA EXISTS IN THE SPACE<br>BETWEEN</p>
+          <div class="poster__statement">
+            <h2 class="poster__heading" data-lines>Memory<br><em>and</em><br>Movement</h2>
+            <p class="poster__description" data-reveal>Traditional voices and folk-rooted sounds can be carried into modern electronic music, reshaped by bass, rhythm, texture, and atmosphere.</p>
           </div>
         </div>
       </section>
 
       <section class="section assets-section" id="assets">
         <div class="container">
-          <p class="eyebrow">Visual Assets</p>
-          <h2>Press photos, logo, cover arts, and downloadable materials.</h2>
-          <p class="section-intro">This section gives media and partners reusable materials without asking for files manually. Use final assets only before publishing.</p>
+          <header class="section-title">
+            <p class="section-title__label">04 | VISUAL ASSETS</p>
+            <h2 class="section-title__heading" data-lines>Beyond<br><em>the sound.</em></h2>
+          </header>
           <div class="button-row">
-            <a class="button button--accent" data-link="pressAssets" href="https://drive.google.com/drive/folders/1zV7ONfSa4_PV7yY_xpLGfzqxyznOT_AJ?usp=drive_link">Download press assets</a>
-            <a class="button button--dark" data-link="oneSheet" href="https://drive.google.com/file/d/1TZ1EjDIZ5XhWIJdO9axD7v3sxo77t3wY/view?usp=drive_link">Download one-sheet PDF</a>
+            <a class="button button--accent" data-link="pressAssets" href="https://drive.google.com/drive/folders/1zV7ONfSa4_PV7yY_xpLGfzqxyznOT_AJ?usp=drive_link">Download press kit</a>
+            <a class="button button--outline" data-link="oneSheet" href="https://drive.google.com/file/d/1TZ1EjDIZ5XhWIJdO9axD7v3sxo77t3wY/view?usp=drive_link">Download PDF</a>
           </div>
-          <div class="asset-grid">
+        </div>
+        <div class="asset-gallery">
+          <div class="asset-gallery__track" id="press-gallery" role="region" aria-label="ANOMA press photographs" tabindex="0">
             <picture>
-              <source srcset="assets/press-1.webp" type="image/webp">
-              <img class="reveal-media" src="assets/press-1.png" width="305" height="305" loading="lazy" decoding="async" alt="ANOMA press photo 1">
-            </picture>
-            <picture>
-              <source srcset="assets/press-2.webp" type="image/webp">
-              <img class="reveal-media" src="assets/press-2.png" width="305" height="305" loading="lazy" decoding="async" alt="ANOMA press photo 2">
+              <source srcset="assets/motion/press-motion2-1-800.webp 800w, assets/motion/press-motion2-1.webp 1600w" sizes="(max-width: 720px) 100vw, 791px" type="image/webp">
+              <img src="assets/motion/press-motion2-1.png" width="1600" height="1218" loading="lazy" decoding="async" alt="ANOMA smiling through a car window at night">
             </picture>
             <picture>
-              <source srcset="assets/press-3.webp" type="image/webp">
-              <img class="reveal-media" src="assets/press-3.png" width="305" height="305" loading="lazy" decoding="async" alt="ANOMA press photo 3">
+              <source srcset="assets/motion/press-motion2-2-800.webp 800w, assets/motion/press-motion2-2.webp 1475w" sizes="(max-width: 720px) calc(100vw - 52px), 613px" type="image/webp">
+              <img src="assets/motion/press-motion2-2.png" width="1475" height="1600" loading="lazy" decoding="async" alt="ANOMA seated in a softly lit studio">
             </picture>
             <picture>
-              <source srcset="assets/press-4.webp" type="image/webp">
-              <img class="reveal-media" src="assets/press-4.png" width="305" height="305" loading="lazy" decoding="async" alt="ANOMA press photo 4">
+              <source srcset="assets/motion/press-motion2-3-800.webp 800w, assets/motion/press-motion2-3.webp 1374w" sizes="(max-width: 720px) calc(100vw - 64px), 602px" type="image/webp">
+              <img src="assets/motion/press-motion2-3.png" width="1374" height="1600" loading="lazy" decoding="async" alt="ANOMA in a black jacket against an atmospheric backdrop">
             </picture>
-            <picture class="asset-grid__wide">
-              <source srcset="assets/press-wide-1.webp" type="image/webp">
-              <img class="reveal-media" src="assets/press-wide-1.png" width="630" height="200" loading="lazy" decoding="async" alt="ANOMA logo landscape visual">
+            <picture>
+              <source srcset="assets/motion/press-motion2-4-800.webp 800w, assets/motion/press-motion2-4.webp 1600w" sizes="(max-width: 720px) 100vw, 736px" type="image/webp">
+              <img src="assets/motion/press-motion2-4.png" width="1600" height="1310" loading="lazy" decoding="async" alt="ANOMA beside a classic car on a city street">
             </picture>
-            <picture class="asset-grid__wide">
-              <source srcset="assets/press-wide-2.webp" type="image/webp">
-              <img class="reveal-media" src="assets/press-wide-2.png" width="630" height="200" loading="lazy" decoding="async" alt="ANOMA cover art landscape visual">
-            </picture>
+          </div>
+          <div class="asset-gallery__controls" hidden>
+            <button class="asset-gallery__arrow asset-gallery__arrow--previous" type="button" aria-label="Previous photograph" aria-controls="press-gallery" title="Previous photograph" disabled><img src="assets/motion/gallery-arrow.svg" width="24" height="24" alt=""></button>
+            <button class="asset-gallery__arrow asset-gallery__arrow--next" type="button" aria-label="Next photograph" aria-controls="press-gallery" title="Next photograph"><img src="assets/motion/gallery-arrow.svg" width="24" height="24" alt=""></button>
           </div>
         </div>
       </section>
 
       <section class="section facts" id="facts">
         <div class="container">
-          <p class="eyebrow">Facts</p>
-          <h2>Project facts for fast press understanding.</h2>
+          <header class="section-title">
+            <p class="section-title__label">05 | FACTS</p>
+            <h2 class="section-title__heading" data-lines>In<br><em>focus.</em></h2>
+          </header>
           <dl class="fact-table">
             <div><dt>Artist / Project name</dt><dd>ANOMA</dd></div>
             <div><dt>Format</dt><dd>Independent solo electronic music project</dd></div>
             <div><dt>Main genres</dt><dd>Deep house, breakbeat, drum &amp; bass, electronic</dd></div>
             <div><dt>Additional influences</dt><dd>Ethnic vocals, folk instruments, Ukrainian folk elements, future Middle Eastern and Mediterranean influences</dd></div>
-            <div><dt>Current cultural root</dt><dd>Ukrainian culture</dd></div>
-            <div><dt>Future cultural direction</dt><dd>Middle Eastern and Mediterranean traditions connected to Israel</dd></div>
-            <div><dt>Location context</dt><dd>Ukraine / Israel</dd></div>
-            <div><dt>Platforms</dt><dd>Spotify, Apple Music, YouTube Music, Deezer</dd></div>
-            <div><dt>Catalog status</dt><dd>Around 10 released tracks</dd></div>
-            <div><dt>Known tracks</dt><dd>Lullaby, Remember me, Let&rsquo;s go out, Night City Lights, Deep Inside</dd></div>
+            <div><dt>Known tracks</dt><dd>Lullaby, Remember me, Ashes Of Us, Let you down</dd></div>
             <div><dt>Contact</dt><dd><a href="mailto:anoma.muz@gmail.com">anoma.muz@gmail.com</a></dd></div>
             <div><dt>Press assets</dt><dd><a href="https://drive.google.com/drive/folders/1zV7ONfSa4_PV7yY_xpLGfzqxyznOT_AJ?usp=drive_link">Google Drive</a></dd></div>
           </dl>
@@ -260,10 +268,13 @@
       <section class="contact dark-section" id="contact">
         <div class="contact__bg parallax-media" data-parallax="-0.08" aria-hidden="true"></div>
         <div class="container contact__content">
-          <p class="eyebrow">Contact</p>
           <div class="contact__grid">
             <div>
-              <h2>For press, playlist submissions, collaborations, and licensing inquiries.</h2>
+              <header class="section-title">
+                <p class="section-title__label">06 | CONTACT</p>
+                <h2 class="section-title__heading" data-lines>Let&rsquo;s<br><em>connect.</em></h2>
+              </header>
+              <p>For press, playlist submissions, collaborations, and licensing inquiries.</p>
               <a class="contact__email" href="mailto:anoma.muz@gmail.com">anoma.muz@gmail.com</a>
               <div class="button-row">
                 <a class="button button--light" data-link="contact" href="mailto:anoma.muz@gmail.com">Contact</a>
@@ -291,6 +302,6 @@
       </section>
     </main>
 
-    <script src="script.js?v=poster-parallax-20260706"></script>
+    <script src="script.js?v=20261005-main-1" defer></script>
   </body>
 </html>
