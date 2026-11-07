@@ -10,7 +10,9 @@
 
   // Split only explicit editorial lines; natural wrapping stays responsive.
   document.querySelectorAll('[data-lines]').forEach(heading => {
-    heading.setAttribute('aria-label', heading.innerText.replace(/\s+/g, ' ').trim());
+    const isHeading = /^H[1-6]$/.test(heading.tagName);
+    // Paragraphs retain their natural text; aria-label is not valid on a paragraph.
+    if (isHeading) heading.setAttribute('aria-label', heading.innerText.replace(/\s+/g, ' ').trim());
     const lines = [[]];
     [...heading.childNodes].forEach(node => {
       if (node.nodeName === 'BR') lines.push([]);
@@ -19,7 +21,7 @@
     heading.replaceChildren(...lines.map((nodes, index) => {
       const mask = document.createElement('span');
       mask.className = 'line-mask';
-      mask.setAttribute('aria-hidden', 'true');
+      if (isHeading) mask.setAttribute('aria-hidden', 'true');
       const line = document.createElement('span');
       line.className = 'line-inner';
       line.style.setProperty('--delay', `${index * 110}ms`);

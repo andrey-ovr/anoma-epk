@@ -23,13 +23,13 @@
   }
   .motion-two .button {
     transition-duration: calc(.3s * var(--motion-trial-scale));
-    transition-delay: var(--motion-trial-delay);
+    transition-delay: 0s;
   }
   .motion-two .mini-links a,
   .motion-two .contact-links a,
   .motion-two .asset-gallery__arrow {
     transition-duration: calc(.2s * var(--motion-trial-scale));
-    transition-delay: var(--motion-trial-delay);
+    transition-delay: 0s;
   }
 
   /* Keyboard focus must not wait for a decorative entrance. */
